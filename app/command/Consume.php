@@ -39,7 +39,7 @@ class Consume extends Command
 
         //回调函数，数据处理
         $callback = function($msg) {
-            echo " Received: ", $msg->body, "n";
+            echo '接收: ', $msg->body, "\n";
         };
         $channel->basic_consume($queueName, '', false, true, false, false, $callback);      //消费接收消息
         

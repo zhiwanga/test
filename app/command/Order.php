@@ -45,7 +45,7 @@ class Order extends Command
 
         for ($i=1; $i<=100; $i++){
             $msgBody = json_encode(["key1" => 'test'.$i]);
-            echo $i;
+            echo '交换机：'.$exchangeName.'，队列：'.$queueName.'，内容：'.$msgBody."\n";
             $msg = new AMQPMessage($msgBody, ['content_type' => 'text/plain', 'delivery_mode' => 2]);   //构建消息
             $channel->basic_publish($msg, $exchangeName, $routingKey);     //发布消息到某个交换机
         }
