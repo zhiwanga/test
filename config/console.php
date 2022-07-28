@@ -5,6 +5,6 @@
 return [
     // 指令定义
     'commands' => [
-        'ordercreate' => 'app\command\order'
+        'order' => 'app\command\order'
     ],
 ];
