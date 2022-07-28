@@ -43,7 +43,7 @@ class Order extends Command
         $channel->queue_declare($queueName, false, true, false, false); //声明初始化一条队列
         $channel->queue_bind($queueName, $exchangeName, $routingKey); //将队列与某个交换机进行绑定，并使用路由关键字
 
-        for ($i=1; $i<=100; $i++){
+        for ($i=1; $i<=10000; $i++){
             $msgBody = json_encode(['num' => $i, 'time' => date('Y-m-d H:i:s', time())]);
             echo '交换机：'.$exchangeName.'，队列：'.$queueName.'，内容：'.$msgBody."\n";
             $msg = new AMQPMessage($msgBody, ['content_type' => 'text/plain', 'delivery_mode' => 2]);   //构建消息
