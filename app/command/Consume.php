@@ -31,7 +31,7 @@ class Consume extends Command
         $exchangeName   = 'exchange_test1';   //交换机名
         $queueName      = 'queue_test1';      //队列名称
         $routingKey     = '';                 //路由关键字(也可以省略)
-        
+
         // 建立生产者与mq之间的连接
         $conn = new AMQPStreamConnection($conf['host'], $conf['port'], $conf['user'], $conf['password'], $conf['vhost']);
         $channel = $conn->channel();    //在已连接基础上建立生产者与mq之间的通道
